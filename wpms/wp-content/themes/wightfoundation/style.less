@@ -1,0 +1,256 @@
+@import url('../twentytwelve/style.css');
+/*
+Theme Name: Wight Foundation
+Theme URI: http://www.cultesscreative.com/
+Author: Cultess Creative Design
+Author URI: http://www.cultesscreative.com/
+Description: The 2012 child theme of Twenty Twelve theme for WordPress is a fully responsive theme that looks great on any device. Features include a front page template with its own widgets, an optional display font, styling for post formats on both index and single views, and an optional no-sidebar page template. Make it yours with a custom menu, header image, and background.
+Template: twentytwelve
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns, right-sidebar, flexible-width, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: twentytwelve
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Notes
+--------------------------------------------------------------
+This stylesheet uses rem values with a pixel fallback. The rem
+values (and line heights) are calculated using two variables:
+
+$rembase:     14;
+$line-height: 24;
+
+---------- Examples
+
+* Use a pixel value with a rem fallback for font-size, padding, margins, etc.
+	padding: 5px 0;
+	padding: 0.357142857rem 0; (5 / $rembase)
+
+* Set a font-size and then set a line-height based on the font-size
+	font-size: 16px
+	font-size: 1.142857143rem; (16 / $rembase)
+	line-height: 1.5; ($line-height / 16)
+
+---------- Vertical spacing
+
+Vertical spacing between most elements should use 24px or 48px
+to maintain vertical rhythm:
+
+.my-new-div {
+	margin: 24px 0;
+	margin: 1.714285714rem 0; ( 24 / $rembase )
+}
+
+---------- Further reading
+
+http://snook.ca/archives/html_and_css/font-size-with-rem
+http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
+
+
+/* =Reset
+-------------------------------------------------------------- */
+@mwidth: 960px;
+@rembase: 14px;
+@line-height: 24px;
+@blue: #038deb;
+@black: #494646;
+
+.float (@float: left) { 
+	float: @float;
+}
+.margin (@t:0px,@r:0px,@b:0px,@l:0px) {
+	@pxValT: @t;
+	@pxValR: @r;
+	@pxValB: @b;
+	@pxValL: @l;
+	@remValT: unit(@pxValT / @rembase);
+	@remValR: unit(@pxValR / @rembase);
+	@remValB: unit(@pxValB / @rembase);
+	@remValL: unit(@pxValL / @rembase);
+	margin: @pxValT @pxValR @pxValB @pxValL;
+	margin: ~"@{remValT}rem" ~"@{remValR}rem" ~"@{remValB}rem" ~"@{remValL}rem";
+}
+.padding (@t:0px,@r:0px,@b:0px,@l:0px) {
+	@pxValT: @t;
+	@pxValR: @r;
+	@pxValB: @b;
+	@pxValL: @l;
+	@remValT: unit(@pxValT / @rembase);
+	@remValR: unit(@pxValR / @rembase);
+	@remValB: unit(@pxValB / @rembase);
+	@remValL: unit(@pxValL / @rembase);
+	padding: @pxValT @pxValR @pxValB @pxValL;
+	padding: ~"@{remValT}rem" ~"@{remValR}rem" ~"@{remValB}rem" ~"@{remValL}rem";
+}
+.font-size (@size: @rembase) {
+	@pxVal: @size;
+	@remVal: unit(@pxVal / @rembase);
+	font-size: @pxVal;
+	font-size: ~"@{remVal}rem";
+	line-height: unit(@line-height / @pxVal);
+}
+/* Page structure */
+body {
+	color: @black;
+}
+*,html {
+	a {
+		color: @blue;
+	}
+}
+.site {
+}
+.site-content,.widget-area,.link-area {
+	.margin(16px,0px,0px,0px);
+}
+.site-content {
+	.margin(16px,0px,0px,20px);
+}
+.link-area {
+	.entry-header {
+		.margin(0px,0px,15px,0px);
+	}
+	.menu-item {
+		.margin(0px,0px,10px,0px);
+		a {
+			text-decoration: none;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.widget-area {
+	.widget{
+		border-bottom: 1px solid @blue;
+		.margin(0px,0px,25px,0px);
+		.padding(0px,0px,25px,0px);
+		h3 {
+			.margin(0px,0px,10px,0px);
+		}
+		a {
+			color: @blue;
+		}
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0 none;
+		}
+	}
+	.widget-title {
+		.font-size(16px);
+		font-weight: normal;
+	}
+}
+/* =3 Columns
+ * --------------------------------------------------------------- */
+
+@media screen and (min-width: 600px) {
+	body {
+		&.tres {
+			.site-header {
+			}
+		}
+		.site {
+			margin-top: 0;
+		}
+		&.page-template-default,&.blog {
+			.site-content {
+				width: percentage(625/@mwidth);
+				margin-left: 0;
+			}
+		}
+		&.full-width {
+			.site-content {
+				margin-left: 0;
+			}
+		}
+		&.template-front-page {
+			.site-content {
+				margin-left: 0;
+				margin-top: 0;
+			}
+		}
+		&.home {
+			.section_excerpt {
+				width: percentage(300/@mwidth);
+				.margin(0px,30px,0px,0px);
+				.float;
+				&:last-child {
+					margin-right: 0;
+				}
+				>h2 {
+					background-color: @blue;
+					display: block;
+					.padding(8px,8px,8px,8px);
+					color: #fff;
+				}
+				>p {
+					.padding(14px,8px,0px,8px);
+					.font-size;
+				}
+			}
+		}
+	}
+	.link-area {
+		width: percentage(160/@mwidth);
+		.float;
+	}
+	.site-content {
+		width: percentage(506/@mwidth);
+	}
+	.widget-area {
+	}
+	.main-navigation li {
+		.margin(0px,38px,0px,0px);
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.main-navigation {
+		ul{
+			&.nav-menu{
+				border-bottom: 2px solid @blue;
+    			border-top: 2px solid @blue;
+			}
+			
+		} 
+		div {
+			&.nav-menu {
+				>ul {
+					border-bottom: 2px solid @blue;
+    				border-top: 2px solid @blue;
+				}
+			}
+		}
+			
+	}
+	.menu-toggle {
+	}
+	.entry-header .entry-title {
+		.font-size(20px);
+	}
+}
+/* Minimum width of 960 pixels. */
+@media screen and (min-width: 960px) {
+}
+
+.main-navigation {
+	ul {
+		li {
+			ul {
+				display: none;
+				visibility: hidden;
+			}
+			&:hover > ul{
+				border-left: 0;
+				display: none;
+				visibility: hidden;
+			}
+		}
+	}
+}

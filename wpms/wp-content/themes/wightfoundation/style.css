@@ -1,0 +1,193 @@
+@import url('../twentytwelve/style.css');
+/*
+Theme Name: Wight Foundation
+Theme URI: http://www.cultesscreative.com/
+Author: Cultess Creative Design
+Author URI: http://www.cultesscreative.com/
+Description: The 2012 child theme of Twenty Twelve theme for WordPress is a fully responsive theme that looks great on any device. Features include a front page template with its own widgets, an optional display font, styling for post formats on both index and single views, and an optional no-sidebar page template. Make it yours with a custom menu, header image, and background.
+Template: twentytwelve
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns, right-sidebar, flexible-width, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: twentytwelve
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* =Notes
+--------------------------------------------------------------
+This stylesheet uses rem values with a pixel fallback. The rem
+values (and line heights) are calculated using two variables:
+
+$rembase:     14;
+$line-height: 24;
+
+---------- Examples
+
+* Use a pixel value with a rem fallback for font-size, padding, margins, etc.
+	padding: 5px 0;
+	padding: 0.357142857rem 0; (5 / $rembase)
+
+* Set a font-size and then set a line-height based on the font-size
+	font-size: 16px
+	font-size: 1.142857143rem; (16 / $rembase)
+	line-height: 1.5; ($line-height / 16)
+
+---------- Vertical spacing
+
+Vertical spacing between most elements should use 24px or 48px
+to maintain vertical rhythm:
+
+.my-new-div {
+	margin: 24px 0;
+	margin: 1.714285714rem 0; ( 24 / $rembase )
+}
+
+---------- Further reading
+
+http://snook.ca/archives/html_and_css/font-size-with-rem
+http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
+
+
+/* =Reset
+-------------------------------------------------------------- */
+/* Page structure */
+body {
+  color: #494646;
+}
+* a,
+html a {
+  color: #038deb;
+}
+.site-content,
+.widget-area,
+.link-area {
+  margin: 16px 0px 0px 0px;
+  margin: 1.1428571428571428rem 0rem 0rem 0rem;
+}
+.site-content {
+  margin: 16px 0px 0px 20px;
+  margin: 1.1428571428571428rem 0rem 0rem 1.4285714285714286rem;
+}
+.link-area .entry-header {
+  margin: 0px 0px 15px 0px;
+  margin: 0rem 0rem 1.0714285714285714rem 0rem;
+}
+.link-area .menu-item {
+  margin: 0px 0px 10px 0px;
+  margin: 0rem 0rem 0.7142857142857143rem 0rem;
+}
+.link-area .menu-item a {
+  text-decoration: none;
+}
+.link-area .menu-item:last-child {
+  margin-bottom: 0;
+}
+.widget-area .widget {
+  border-bottom: 1px solid #038deb;
+  margin: 0px 0px 25px 0px;
+  margin: 0rem 0rem 1.7857142857142858rem 0rem;
+  padding: 0px 0px 25px 0px;
+  padding: 0rem 0rem 1.7857142857142858rem 0rem;
+}
+.widget-area .widget h3 {
+  margin: 0px 0px 10px 0px;
+  margin: 0rem 0rem 0.7142857142857143rem 0rem;
+}
+.widget-area .widget a {
+  color: #038deb;
+}
+.widget-area .widget:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0 none;
+}
+.widget-area .widget-title {
+  font-size: 16px;
+  font-size: 1.1428571428571428rem;
+  line-height: 1.5;
+  font-weight: normal;
+}
+/* =3 Columns
+ * --------------------------------------------------------------- */
+@media screen and (min-width: 600px) {
+  body .site {
+    margin-top: 0;
+  }
+  body.page-template-default .site-content,
+  body.blog .site-content {
+    width: 65.10416666666666%;
+    margin-left: 0;
+  }
+  body.full-width .site-content {
+    margin-left: 0;
+  }
+  body.template-front-page .site-content {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  body.home .section_excerpt {
+    width: 31.25%;
+    margin: 0px 30px 0px 0px;
+    margin: 0rem 2.142857142857143rem 0rem 0rem;
+    float: left;
+  }
+  body.home .section_excerpt:last-child {
+    margin-right: 0;
+  }
+  body.home .section_excerpt > h2 {
+    background-color: #038deb;
+    display: block;
+    padding: 8px 8px 8px 8px;
+    padding: 0.5714285714285714rem 0.5714285714285714rem 0.5714285714285714rem 0.5714285714285714rem;
+    color: #fff;
+  }
+  body.home .section_excerpt > p {
+    padding: 14px 8px 0px 8px;
+    padding: 1rem 0.5714285714285714rem 0rem 0.5714285714285714rem;
+    font-size: 14px;
+    font-size: 1rem;
+    line-height: 1.7142857142857142;
+  }
+  .link-area {
+    width: 16.666666666666664%;
+    float: left;
+  }
+  .site-content {
+    width: 52.708333333333336%;
+  }
+  .main-navigation li {
+    margin: 0px 38px 0px 0px;
+    margin: 0rem 2.7142857142857144rem 0rem 0rem;
+  }
+  .main-navigation li:last-child {
+    margin-right: 0;
+  }
+  .main-navigation ul.nav-menu {
+    border-bottom: 2px solid #038deb;
+    border-top: 2px solid #038deb;
+  }
+  .main-navigation div.nav-menu > ul {
+    border-bottom: 2px solid #038deb;
+    border-top: 2px solid #038deb;
+  }
+  .entry-header .entry-title {
+    font-size: 20px;
+    font-size: 1.4285714285714286rem;
+    line-height: 1.2;
+  }
+}
+/* Minimum width of 960 pixels. */
+@media screen and (min-width: 960px) {
+  
+}
+.main-navigation ul li ul {
+  display: none;
+  visibility: hidden;
+}
+.main-navigation ul li:hover > ul {
+  border-left: 0;
+  display: none;
+  visibility: hidden;
+}

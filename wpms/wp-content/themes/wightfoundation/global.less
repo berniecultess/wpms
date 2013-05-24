@@ -1,0 +1,762 @@
+@import 'reset.css';
+
+@mwidth: 920px;
+@rembase: 14px;
+@line-height: 24px;
+@ltblue: #1cb0dc;
+@dkblue: #1692b3;
+@black: #333;
+@grey: #6B6F71;
+@ltgrey: #D2D7D8;
+
+.width(@w: @mwidth) {
+	width: percentage(@w/@mwidth);
+}
+.line-height (@size: @rembase) {
+	line-height: unit(@line-height / @size);
+} 
+.float (@float: left) { 
+	float: @float;
+}
+.margin (@t:0px,@r:0px,@b:0px,@l:0px) {
+	@pxValT: @t;
+	@pxValR: @r;
+	@pxValB: @b;
+	@pxValL: @l;
+	@remValT: unit(@pxValT / @rembase);
+	@remValR: unit(@pxValR / @rembase);
+	@remValB: unit(@pxValB / @rembase);
+	@remValL: unit(@pxValL / @rembase);
+	margin: @pxValT @pxValR @pxValB @pxValL;
+	margin: ~"@{remValT}rem" ~"@{remValR}rem" ~"@{remValB}rem" ~"@{remValL}rem";
+}
+.mixin(@a) when (ispixel(@a)) {
+	padding: @a;
+}
+.mixin(@tb,@rl) when (ispixel(@tb)),(ispixel(@rl)) {
+	padding: @tb @rl;
+}
+.mixin(@t,@rl,@b) when (ispixel(@t)),(ispixel(@rl)),(ispixel(@b)) {
+	padding: @t @rl @b;
+}
+.mixin(@t,@r,@b,@l) when (ispixel(@t)),(ispixel(@r)),(ispixel(@b)),(ispixel(@l)) {
+	padding: @t,@r,@b,@l;
+}
+.padding (@t:0px,@r:0px,@b:0px,@l:0px) {
+	@pxValT: @t;
+	@pxValR: @r;
+	@pxValB: @b;
+	@pxValL: @l;
+	@remValT: unit(@pxValT / @rembase);
+	@remValR: unit(@pxValR / @rembase);
+	@remValB: unit(@pxValB / @rembase);
+	@remValL: unit(@pxValL / @rembase);
+	padding: @pxValT @pxValR @pxValB @pxValL;
+	padding: ~"@{remValT}rem" ~"@{remValR}rem" ~"@{remValB}rem" ~"@{remValL}rem";
+}
+.font-size (@size: @rembase) {
+	@pxVal: @size;
+	@remVal: unit(@pxVal / @rembase);
+	font-size: @pxVal;
+	font-size: ~"@{remVal}rem";
+	line-height: unit(@line-height / @size);
+}
+.justify(@a: left) {
+	text-align: @a;
+}
+
+/* #Clear Floats ================================================== */ 
+.clearfix { 
+	zoom: 1; 
+	&:before, 
+	&:after { 
+		content: ""; 
+		display: table;
+	} 
+	&:after { 
+		clear: both;
+	}
+} 
+.clear { 
+	clear:both;
+}
+/**                  IDs                   **/ /**
+ **********************************************
+ ********        Global ONLY           ********
+ **********************************************
+ */
+p {
+    .line-height(18px); /*18px lh / 13px font*/
+}
+/**
+ *  Fonts and Typefaces
+ */
+a {
+    color: @ltblue;
+    text-decoration: none;
+}
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    width: 100%;
+    .font-size(12px); /*13px*/
+    color: @black;
+    background-color: #fff;
+}
+h1,h2,h3,h4,h5,h6,.moreLink {
+	font-weight: bold;
+}
+h1 {
+    .font-size(26px); /*26px / 16px;*/
+    .margin(1px,0px,16px,0px);
+}
+
+h2 {
+    .font-size(21px); /*22px;*/
+}
+
+h3 {
+    .font-size(18px); /* 17px; change to 18px*/
+}
+
+h4 {
+    .font-size(13px); /*13px;*/
+}
+
+h5, .moreLink {
+    .font-size(11px); /*11px;*/
+    text-transform: uppercase;
+    .padding(1px, 0px, 8px, 0px);
+    color: @grey;
+}
+
+.moreLink {
+    color: #8dc63f;
+    text-decoration: none;
+    padding: 0;
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#contentSection {
+	 #block2 {
+	    .width(559);
+	    .float;
+	    .padding(0, 20px, 0, 0);
+	 	#domainContent {
+		    background: transparent url(/images/domain_reg_bkgrd.gif) no-repeat scroll 0 0;
+		    .width(559);
+		    height: 183px;
+	 		.dc_p {
+    			.font-size(35px);
+    			.padding(18px, 0px, 12px, 0px);
+    		}
+			.dc_hdr {
+			    padding: 4px 0 3px;
+			}
+			
+			.dc_input {
+			    line-height: 30px;
+			    padding: 4px 0 0;
+			}
+			
+			#hmform1 {
+			    .float;
+			    margin: 0 10px 0 0;
+			    width: 179px;
+				p {
+				    text-align: center;
+				}
+				
+				#i_dc {
+				    margin: 0 0 12px;
+				    width: 140px;
+				}
+			}
+	    }
+    }
+	#infoSection {
+	    .padding(30px,0, 0, 0);
+		#aublock1 {
+		    .float;
+		    width: 520px;
+		    background: transparent url(/images/vertical_liner_bg.gif) no-repeat scroll 100% 0;
+		    padding: 0 25px 0 0;
+		}
+		
+		#aublock2 {
+		    .float(right);
+		    width: 260px;
+		    padding: 0 20px;
+		}
+	}
+	#block3 {
+	}
+	
+	#block4 {
+	    .width(268);
+	    .float;
+	}
+}
+
+
+#headerSection {
+    background: transparent url(/images/top_blk_bg.gif) repeat-x scroll 0 0;
+    height: 130px;
+	#logo {
+	    .float;
+	    .margin(23px, 0, 0, 43px);
+	}
+	
+	#nav {
+	    .float(right);
+		p {
+		    color: #FFFFFF;
+		    .font-size; /*14px;*/
+		    .margin(10px,10px,0,0);
+		    text-align: right;
+		    .ph {
+		    	.font-size(19px);
+		    }
+		}
+		ul {
+		    list-style-type: none;
+		    .padding(53px,0, 0, 0);
+			li {
+			    display: inline;
+			    .margin(0, 10px,0,10px);
+				a {
+				    color: #fff;
+				    text-decoration: none;
+				    font-weight: bold;
+				    .font-size(11px);
+					&:hover {
+					    color: @dkblue;
+					}
+				}
+			}
+		}
+		.here {
+		    color: @dkblue;
+		}
+	}
+}
+
+#footerSection {
+    height: 47px;
+    background: transparent url(/images/bottom_blk_bg.gif) repeat-x scroll 0 0;
+	p {
+	    text-align: center;
+	    color: #fff;
+	    .padding(20px, 0, 0,0);
+	}
+
+}
+
+#flashSection {
+    height: 274px;
+    background: transparent url(/images/body_tan_bg.gif) repeat-x scroll 0 0;
+	.ucsInner {
+	    width: 920px;
+	    margin: 0 auto;
+	}
+}
+
+.wide-spread { width: 100%; }
+.justify {
+    text-align: justify;
+}
+
+#contentSection-1, #contentSection-2, #contentSection-3, #contentSection-4, #contentSection-5 {
+    .padding(22px, 30px, 22px, 30px);
+}
+
+/*#hInner, #ucsInner, #cs-1-Inner, #cs-2-Inner, #cs-3-Inner, #cs-4-Inner, #cs-5-Inner, #fInner,  .row .cs-Inner {
+    width: 930px;
+    margin: 0 auto;
+}*/
+
+#hInner {
+	.clearfix;
+    width: 920px;
+    margin: 0 auto;
+    position: relative;
+}
+.row {
+    .padding(22px, 0, 22px, 0);
+	.cs-Inner {
+	    width: 920px;
+	    margin: 0 auto;
+	    position: relative;
+    }
+	.sidebar_w {
+	    background: url("/images/vert-liner.png") no-repeat scroll 247px 29px transparent;
+	}
+}
+
+
+#web_design, #content_management, #seo, #biz_material, #biz_cards, #brochures {
+    .width(268);
+    .float;
+}
+
+#s_img_1 {
+    display: block;
+    padding: 0 0 17px;
+}
+
+#contact_info {
+    .float;
+    padding: 0 0 0 24px;
+    .width(278);
+    p {
+    	padding: 0 0 11px;
+	}
+}
+
+#fill_out_form {
+    .float;
+    .width(470);
+    padding: 0 75px 0 0;
+	#recap {
+	    .float;
+	}
+	table.form {
+	    border-collapse: collapse;
+	    .width;
+	}
+	
+	#fill_out_form table.form tbody tr td.fn {
+	    .width(460);
+	}
+	
+	p {
+	    padding: 0 0 26px;
+	}
+	
+	label {
+	    display: block;
+	    padding: 0 0 5px;
+	}
+	
+	input {
+	    background-color: @ltgrey;
+	    border: 0 none;
+	    .width(449);
+	    height: 20px;
+	    margin: 0 0 10px;
+	    padding: 0 3px;
+		&#fname, &#lname {
+		    width: 211px;
+		}
+		&#submit {
+		    background-color: #FFFFFF;
+		    color: #8DC63F;
+		    font-weight: bold;
+		    margin: 0;
+		    padding: 55px 0 0;
+		    .width(130);
+		    cursor: pointer;
+		    height: auto;
+		    .float;
+		}
+	}
+	
+	textarea {
+	    background-color: @ltgrey;
+	    border: 0 none;
+	    .width(449);
+	    height: 93px;
+	    margin: 0 0 10px;
+	    padding: 3px;
+	}
+}
+/**
+ **********************************************
+ ********        Images ONLY           ********
+ **********************************************
+ */
+#logo_img {
+    width: 278px;
+    height: 81px;
+}
+
+#icon_img {
+    .float;
+    padding: 5px 10px 0 0;
+}
+
+#contact_m_img {
+    width: 238px;
+    height: 442px;
+    display: block;
+    padding: 47px 0 0 28px;
+}
+
+/**                  CLASSES                **/
+.ph {
+}
+
+.unc {
+    color: @ltblue;
+}
+
+.uc {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.just_left {
+    text-align: left;
+}
+
+.just_right {
+    text-align: right;
+}
+
+.left {
+    .float;
+}
+
+.right {
+    .float(right);
+}
+
+.t10 {
+    padding-top: 10px;
+}
+
+.t13 {
+    padding-top: 13px;
+}
+
+.t16 {
+    padding: 16px 0 0;
+}
+
+.t30 {
+    padding-top: 30px;
+}
+
+.d5 {
+    padding-bottom: 5px;
+}
+
+.d10 {
+    padding-bottom: 10px;
+}
+
+.d12 {
+    padding-bottom: 12px;
+}
+
+.d14 {
+    padding-bottom: 14px;
+}
+
+.d19 {
+    padding-bottom: 19px;
+}
+
+.d60 {
+    padding-bottom: 60px;
+}
+
+.more {
+    padding-top: 8px;
+    text-align: right;
+}
+
+.warning {
+    color: #f00;
+    font-weight: bold;
+}
+
+.no_margin {
+    margin: 0 !important;
+}
+
+.tan {
+    background-color: #f7f2ea;
+}
+
+.mr_8 {
+    margin-right: 8px;
+}
+
+.mr_28 {
+    margin: 0 28px 0 0;
+}
+
+.ml_28 {
+    margin: 0 0 0 28px;
+}
+
+.md_7 {
+    margin: 0 0 7px;
+}
+
+.pl_18 {
+    padding-left: 18px;
+}
+
+.pr_10 {
+    padding-right: 10px;
+}
+
+.sidebar {
+    background: transparent url(../images/vertical_liner_bg_tan.gif) no-repeat scroll 100% 0;
+}
+
+/**
+ **********************************************
+ ********         clear fix            ********
+ ********         for floats           ********
+ **********************************************
+ */
+.clearLeft {
+    clear: left;
+    margin: 0;
+    padding: 0;
+}
+
+.clearRight {
+    clear: right;
+    margin: 0;
+    padding: 0;
+}
+
+.clearFloats {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+/* these styles instruct non-IE browsers to render container elements so that they fully enclose floats */
+/* without this class applied, a float might hang over the bottom border of it's container */
+.clearAllFloats:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.clearAllFloats {
+    display: inline-block;
+}
+
+/* Hides from IE-mac \*/ * html .clearAllFloats {
+    height: 1%;
+}
+
+.clearAllFloats {
+    display: block;
+}
+
+/**
+ *  for Portfolio *
+ *
+ */
+#overlay {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    .justify(center);
+    z-index: 10000;
+	#content {
+	    width: 300px;
+	    margin: 100px auto;
+	    background-color: #fff;
+	    border: 1px solid #000;
+	    padding: 15px;
+	    .justify(center);
+	    /* styling*/
+	    background-color: @black;
+	    border: 1px solid #666;
+	    /* CSS3 styling for latest browsers*/
+	    -moz-box-shadow: 0 0 90px 5px #000;
+	    -webkit-box-shadow: 0 0 90px #000;
+	}
+}
+div {
+	&.tempStyle {
+	    .padding(102px, 530px, 0, 530px);
+	    height: 172px;
+    }
+	&.d12 p {
+	    .float;
+	    width: 190px;
+	}
+	
+	&.relPos {
+	    position: relative;
+	}
+	
+	&.absPos {
+	    position: absolute;
+	}
+	&.row {
+		.vert-liner-dimens {
+			img {
+				width: 19px;
+				height: 265px;
+				display: block;
+			}
+		}
+	}
+}
+
+#imgA {
+    height: 580px;
+    width: 525px;
+}
+
+#imgAsub {
+    padding-left: 22px;
+    width: 259px;
+}
+
+#imgB {
+    height: 580px;
+    width: 526px;
+}
+
+#imgBsub {
+    padding-left: 22px;
+    width: 259px;
+    text-align: center;
+}
+
+#temp-A-s-img-1 {
+    width: 259px;
+    height: 286px;
+    padding-bottom: 7px;
+}
+
+#temp-A-s-img-2 {
+    width: 259px;
+    height: 287px;
+}
+
+#temp-B-s-img-1 {
+    width: 257px;
+    height: 286px;
+    padding-bottom: 12px;
+}
+
+#temp-B-s-img-2 {
+    width: 253px;
+    height: 281px;
+}
+
+.liner {
+    right: 86px;
+    top: 30px;
+}
+
+.linerhp1, .linerhp2, .linerhp3, .linerhp4 {
+    left: 297px;
+    top: 83px;
+}
+
+.linerhp3, .linerhp4 {
+    top: 62px;
+}
+
+.linerhp2 {
+    left: 595px;
+}
+
+.linerhp3 {
+    left: 266px;
+}
+
+.linerhp4 {
+    left: 591px;
+}
+
+.linerhp5 {
+    left: 541px;
+    top: 48px;
+}
+
+
+/* New Content */
+.cs-Inner {
+	.clearfix;
+	.block {
+		.width(268);
+		.float;
+		.padding(0,50px,0,0);
+		&:last-child {
+			.padding(0,0,0,0);
+		}
+	}
+	.idxBlk, .psBlk {
+		background: url("/images/vert-liner.png") no-repeat scroll 282px 75px transparent; 
+	}
+	.psBlk {
+		background-position: 288px 53px;
+		h3, h5 {
+			padding-left: 11px;
+		}
+	}
+	.idxBlk {
+		height: 375px;
+	}
+	.blk {
+		background: none repeat scroll 0 0 transparent;
+	    border-right: medium dotted;
+	    height: auto;
+	    padding-right: 40px;
+	    width: 418px;	
+		&:last-child {
+			border: 0 none;
+		    padding-left: 40px;
+		    padding-right: 0;
+		}
+	}
+	.customBlk {
+		height: auto;
+		padding-right: 0;
+		&:first-child {
+			/*background-color: blue;
+			padding-right: 57px;
+			padding-bottom: 35px;*/
+		} 
+		&:last-child { 
+			padding-left: 57px;
+			background: url("/images/vert-liner.png") no-repeat scroll 15px 75px transparent;
+		}
+	}
+}
+#law_firm_web_design {
+	background: url("/images/vert-liner.png") no-repeat scroll 288px 75px transparent;
+	padding-right: 57px;
+	padding-bottom: 35px;
+}
+#grpA, #grpB {
+	background: url("/images/vert-liner.png") no-repeat scroll 282px 75px transparent;
+    padding-top: 15px;
+    background-position: 819px 48px;
+    .clearfix;
+}
+
+/**
+*
+* CSS for system error
+*/
+body.sys-err {
+	background-color: #252525;
+	#cmgsn {
+		margin: 50px auto;
+	}
+}
+
